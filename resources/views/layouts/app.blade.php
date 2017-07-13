@@ -26,11 +26,11 @@
         </style>
     </head>
     <body id="app-layout">
-        <nav class="navbar navbar-default navbar-static-top" style="height: 175px;">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-
                     <!-- Collapsed Hamburger -->
+                    @if (Auth::guest())
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
@@ -42,13 +42,26 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         RK Twitter
                     </a>
+                    @else                
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Home
+                    </a>                     
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Notifications
+                    </a>    
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Messages
+                    </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+                    @if(Auth::guest())
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/home') }}">About</a></li>
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -71,16 +84,6 @@
                 </div>
             </div>
         </nav>
-                <ul class="nav nav-pills center-block" align="center">
-                        <li class=""><a href="#">Featured</a></li>
-                        <li class=""><a href="#">Sports</a></li>
-                        <li class=""><a href="#">Music</a></li>
-                        <li class=""><a href="#">Entertainment</a></li>
-                        <li class=""><a href="#">News</a></li>
-                        <li class=""><a href="#">Lifestyle</a></li>
-                        <li class=""><a href="#">More</a></li>
-                    </ul>
-
         @yield('content')
 
         <!-- JavaScripts -->
