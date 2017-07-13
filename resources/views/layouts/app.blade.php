@@ -40,7 +40,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Twitter
+                        RK Twitter
                     </a>
                 </div>
 
